@@ -4,6 +4,7 @@ namespace Messagebird\Http;
 class Message implements \Psr\Http\Message\MessageInterface
 {
     private $protocol;
+    private $headers;
 
     public function getProtocolVersion()
     {
@@ -24,12 +25,24 @@ class Message implements \Psr\Http\Message\MessageInterface
 
     public function getHeaders()
     {
-        return true;
+        $this->headers = [];
+        \var_dump(\headers_sent());
+        if(\headers_sent()){
+            $header =  \headers_list();
+        
+            foreach($header as $head){
+                $lineArray = \explode(':', $head);
+                $this->headers[$lineArray[0]] = $lineArray[1];
+            }
+
+        }
+        return $this->headers;
     }
 
     public function hasHeader($name)
     {
-        return true;
+        $name = \strtolower($name);
+
     }
 
     public function getHeader($name)
