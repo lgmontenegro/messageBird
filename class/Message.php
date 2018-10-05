@@ -26,7 +26,6 @@ class Message implements \Psr\Http\Message\MessageInterface
     public function getHeaders()
     {
         $this->headers = [];
-        \var_dump(\headers_sent());
         if(\headers_sent()){
             $header =  \headers_list();
         
