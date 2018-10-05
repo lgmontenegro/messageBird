@@ -1,0 +1,18 @@
+{
+    "name": "leo/message-bird-php",
+    "authors": [
+        {
+            "name": "Leonardo Montenegro",
+            "email": "leonardo@montenegro.com.br"
+        }
+    ],
+    "description": "",
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Messagebird\\Http\\": "class/",
+            "Psr\\Http\\Message\\": "interfaces/"
+        }
+    }
+}
